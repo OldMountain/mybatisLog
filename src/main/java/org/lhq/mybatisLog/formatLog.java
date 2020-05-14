@@ -51,7 +51,7 @@ public class formatLog extends AnAction {
                             if ("Long".equals(type) || "Integer".equals(type)) {
                                 sql = sql.replaceFirst(regex, param.substring(0, param.indexOf("(")));
                             } else {
-                                sql = sql.replaceFirst(regex, "\"" + param.substring(0, param.indexOf("(")) + "\"");
+                                sql = sql.replaceFirst(regex, "'" + param.substring(0, param.indexOf("(")) + "'");
                             }
                             index++;
                         } else {
