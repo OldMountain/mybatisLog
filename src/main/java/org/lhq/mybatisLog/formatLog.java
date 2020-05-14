@@ -1,4 +1,4 @@
-package org.example.mybatisLog;
+package org.lhq.mybatisLog;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -6,7 +6,9 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
+import org.lhq.mybatisLog.utils.Constant;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.util.Optional;
@@ -23,19 +25,18 @@ public class formatLog extends AnAction {
     public void actionPerformed(AnActionEvent e) {
         // TODO: insert action logic here
         Project project = e.getData(PlatformDataKeys.PROJECT);
-        String title = "Hello World!";
         Editor editor = e.getData(PlatformDataKeys.EDITOR);
-        String message = "sql转换失败";
+        String message = null;
         if (editor != null && editor.getSelectionModel().hasSelection()) {
             String selectedText = Optional.ofNullable(editor.getSelectionModel().getSelectedText()).orElse("");
             String[] textList = selectedText.split("\\r?\\n");
             String sql = "";
             String[] params = null;
             for (String text : textList) {
-                if (text.contains("Preparing:")) {
-                    sql = text.split("Preparing:")[1].trim();
-                } else if (text.contains("Parameters:")) {
-                    params = text.split("Parameters:")[1].split(",");
+                if (text.contains(Constant.SQL_PREPARING)) {
+                    sql = text.split(Constant.SQL_PREPARING)[1].trim();
+                } else if (text.contains(Constant.SQL_PARAMETERS)) {
+                    params = text.split(Constant.SQL_PARAMETERS)[1].split(",");
                     break;
                 }
             }
@@ -62,7 +63,12 @@ public class formatLog extends AnAction {
             }
         }
         //显示对话框
-        Messages.showMessageDialog(project, message, title, Messages.getInformationIcon());
+        Icon informationIcon = Messages.getInformationIcon();
+        if (message == null) {
+            message = "sql转换失败";
+            informationIcon = Messages.getErrorIcon();
+        }
+        Messages.showMessageDialog(project, message, Constant.PROJECT_NAME, informationIcon);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(message), null);
     }
 }

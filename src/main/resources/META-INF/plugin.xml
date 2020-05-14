@@ -18,10 +18,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="LogFormat" class="org.example.mybatisLog.LogFormat" text="LogFormat" description="sql日志拼接">
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
-        </action>
-        <action id="formatLog" class="org.example.mybatisLog.formatLog" text="formatLog" description="格式化sql">
+        <action id="formatLog" class="org.lhq.mybatisLog.formatLog" text="FormatLog" description="格式化sql">
             <add-to-group group-id="ConsoleView.PopupMenu" anchor="first"/>
         </action>
     </actions>
