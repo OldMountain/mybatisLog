@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>org.example.mybatisLog</id>
+    <name>Mybatis Log</name>
+    <vendor email="1351395043@yourcompany.com" url="http://www.luhangqi.com">Luhangqi</vendor>
+
+    <description><![CDATA[
+    Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.Hello World.<br>
+    <em>Hello World</em>
+    ]]></description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="LogFormat" class="org.example.mybatisLog.LogFormat" text="LogFormat" description="sql日志拼接">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+        <action id="formatLog" class="org.example.mybatisLog.formatLog" text="formatLog" description="格式化sql">
+            <add-to-group group-id="ConsoleView.PopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
