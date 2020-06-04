@@ -1,10 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+        maven {
+            url 'https://dl.bintray.com/jetbrains/intellij-plugin-service'
+        }
+
+    }
+    dependencies {
+        classpath "org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.5.0-SNAPSHOT"
+    }
+}
+
 plugins {
     id 'java'
     id 'org.jetbrains.intellij' version '0.4.21'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+apply plugin: 'org.jetbrains.intellij'
+
+group 'org.lhq.mybatisLog'
+version '2.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -19,4 +37,9 @@ intellij {
     version '2020.1.1'
     plugins = ['java']
     sameSinceUntilBuild = true
+}
+
+patchPluginXml {
+    sinceBuild '201'
+    untilBuild '202'
 }
