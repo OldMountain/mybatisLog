@@ -22,7 +22,7 @@ plugins {
 apply plugin: 'org.jetbrains.intellij'
 
 group 'org.lhq.mybatisLog'
-version '2.0-SNAPSHOT'
+version '2.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -40,6 +40,6 @@ intellij {
 }
 
 patchPluginXml {
-    sinceBuild '201'
-    untilBuild '202'
+    sinceBuild '191'
+    untilBuild '202.*'
 }
