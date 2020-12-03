@@ -17,9 +17,9 @@ import java.util.regex.Pattern;
 
 public class formatLog extends AnAction {
 
-    private static String regex = "\\?";
+    private static final String REGEX = "\\?";
 
-    private static Pattern pattern = Pattern.compile(regex);
+    private static final Pattern PATTERN = Pattern.compile(REGEX);
 
     @Override
     public void actionPerformed(AnActionEvent e) {
@@ -41,7 +41,7 @@ public class formatLog extends AnAction {
                 }
             }
             if (!"".equals(sql)) {
-                Matcher matcher = pattern.matcher(sql);
+                Matcher matcher = PATTERN.matcher(sql);
                 int index = 0;
                 while (matcher.find()) {
                     if (params != null) {
@@ -49,9 +49,9 @@ public class formatLog extends AnAction {
                             String param = params[index].trim();
                             String type = param.substring(param.indexOf("(") + 1, param.indexOf(")"));
                             if ("Long".equals(type) || "Integer".equals(type)) {
-                                sql = sql.replaceFirst(regex, param.substring(0, param.indexOf("(")));
+                                sql = sql.replaceFirst(REGEX, param.substring(0, param.indexOf("(")));
                             } else {
-                                sql = sql.replaceFirst(regex, "'" + param.substring(0, param.indexOf("(")) + "'");
+                                sql = sql.replaceFirst(REGEX, "'" + param.substring(0, param.indexOf("(")) + "'");
                             }
                             index++;
                         } else {
