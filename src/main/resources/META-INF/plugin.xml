@@ -1,11 +1,12 @@
 <idea-plugin>
     <id>org.example.mybatisLog</id>
     <name>Mybatis Log</name>
-    <vendor email="1351395043@yourcompany.com" url="http://www.luhangqi.com">Luhangqi</vendor>
+    <vendor email="1351395043@qq.com">酷酷的追</vendor>
 
     <description><![CDATA[
-    LuHangQi Mybatis log plugin support..<br>
+    Kukuz Mybatis log plugin support..<br>
     <em>自用</em>
+    <em>功能不完善</em>
     ]]></description>
     <version>2.2.1</version>
     <change-notes><![CDATA[
