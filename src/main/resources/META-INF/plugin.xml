@@ -7,9 +7,13 @@
     LuHangQi Mybatis log plugin support..<br>
     <em>自用</em>
     ]]></description>
-    <version>1.5.0</version>
-    <idea-version since-build="201" until-build="201.*"/>
+    <version>2.2.1</version>
     <change-notes><![CDATA[
+      <p>
+      2.2.1
+      <ul>
+      <li>支持idea2020.3版本</li>
+      </ul>
       <p>
       1.0
       <ul>
@@ -30,6 +34,10 @@
         <!-- Add your actions here -->
         <action id="formatLog" class="org.lhq.mybatisLog.formatLog" text="FormatLog" description="格式化sql">
             <add-to-group group-id="ConsoleView.PopupMenu" anchor="first"/>
+            <add-to-group group-id="BasicEditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="Diff.EditorPopupMenu" anchor="first"/>
         </action>
     </actions>
 </idea-plugin>
