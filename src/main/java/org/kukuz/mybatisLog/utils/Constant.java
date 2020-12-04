@@ -1,4 +1,4 @@
-package org.lhq.mybatisLog.utils;
+package org.kukuz.mybatisLog.utils;
 
 /**
  * 常量
