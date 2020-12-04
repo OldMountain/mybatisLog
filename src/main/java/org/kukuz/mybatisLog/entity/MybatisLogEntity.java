@@ -24,8 +24,6 @@ public class MybatisLogEntity {
         MybatisLogEntity result = new MybatisLogEntity();
         result.setSql(this.getSql());
         result.setParams(this.getParams());
-        this.setSql(null);
-        this.setParams(null);
         return result;
     }
 

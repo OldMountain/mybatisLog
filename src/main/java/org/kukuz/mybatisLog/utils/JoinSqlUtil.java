@@ -34,7 +34,10 @@ public class JoinSqlUtil {
                 String[] params = text.split(Constant.SQL_PARAMETERS);
                 if (params.length > 1) {
                     logEntity.setParams(Arrays.asList(params[1].split(",")));
-                    logList.add(logEntity.copy());
+                    if (logEntity.getSql() != null) {
+                        logList.add(logEntity.copy());
+                    }
+                    logEntity = new MybatisLogEntity();
                 }
             }
         }
