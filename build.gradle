@@ -22,7 +22,7 @@ plugins {
 apply plugin: 'org.jetbrains.intellij'
 
 group 'org.lhq.mybatisLog'
-version '2.2.2-SNAPSHOT'
+version '2.2.3-SNAPSHOT'
 
 repositories {
     mavenCentral()

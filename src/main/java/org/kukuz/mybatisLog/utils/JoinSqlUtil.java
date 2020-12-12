@@ -33,7 +33,7 @@ public class JoinSqlUtil {
             } else if (text.contains(Constant.SQL_PARAMETERS)) {
                 String[] params = text.split(Constant.SQL_PARAMETERS);
                 if (params.length > 1) {
-                    logEntity.setParams(Arrays.asList(params[1].split(",")));
+                    logEntity.setParams(Arrays.asList(params[1].split("\\), ")));
                     if (logEntity.getSql() != null) {
                         logList.add(logEntity.copy());
                     }
