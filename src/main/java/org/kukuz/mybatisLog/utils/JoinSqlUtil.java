@@ -33,7 +33,7 @@ public class JoinSqlUtil {
             } else if (text.contains(Constant.SQL_PARAMETERS)) {
                 String[] params = text.split(Constant.SQL_PARAMETERS);
                 if (params.length > 1) {
-                    logEntity.setParams(Arrays.asList(params[1].split("\\), ")));
+                    logEntity.setParams(Arrays.asList(params[1].split(", ")));
                     if (logEntity.getSql() != null) {
                         logList.add(logEntity.copy());
                     }
@@ -51,8 +51,11 @@ public class JoinSqlUtil {
                     if (params != null) {
                         if (params.size() > index) {
                             String param = params.get(index).trim();
-                            String type = param.substring(param.indexOf("(") + 1, param.indexOf(")"));
-                            if ("Long".equals(type) || "Integer".equals(type)) {
+                            String type = null;
+                            if (param.contains("(") && param.contains("(")) {
+                                type = param.substring(param.indexOf("(") + 1, param.indexOf(")"));
+                            }
+                            if (type == null || "Long".equals(type) || "Integer".equals(type)) {
                                 sql = mybatisLogEntity.getSql().replaceFirst(REGEX, param.substring(0, param.indexOf("(")));
                             } else {
                                 sql = mybatisLogEntity.getSql().replaceFirst(REGEX, "'" + param.substring(0, param.indexOf("(")) + "'");
